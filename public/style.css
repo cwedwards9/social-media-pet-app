@@ -1,0 +1,12 @@
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+
+nav li {
+    list-style: none;
+    display: inline;
+    margin-left: 10px;
+}
