@@ -1,2 +1,16 @@
 <%- include("../partials/header") %>
-<h1>Pets homepage</h1>
+
+<div class="pet-homepage">
+    <h1>Pets homepage</h1>
+
+    <% pets.forEach(pet => { %>
+        <div class="pet-post">
+            <p><%= pet.author.username %></p>
+            <a href="/pets/<%= pet._id %>">
+                <img src="<%=pet.image %>">
+            </a>
+            <p><%= pet.author.username %></p>
+            <p><%= pet.caption %></p>
+        </div>
+    <% })%>
+</div>
