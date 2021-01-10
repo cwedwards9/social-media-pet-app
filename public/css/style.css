@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: teal;
+    color: white;
+}
+
+nav li {
+    list-style: none;
+    display: inline;
+    margin-left: 10px;
+}
+
+
+/* Pets Homepage (pets/index) */
+.pet-post {
+    margin: 10px auto;
+    width: 40vw;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.pet-post img {
+    width: 100%;
+}
