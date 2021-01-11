@@ -1,16 +1,17 @@
 <%- include("../partials/header") %>
 
 <div class="pet-homepage">
-    <h1>Pets homepage</h1>
+    <h1>Home</h1>
 
-    <% pets.forEach(pet => { %>
+    <% posts.forEach(pet => { %>
         <div class="pet-post">
-            <p><%= pet.author.username %></p>
+            <p><%= pet.title %></p>
             <a href="/pets/<%= pet._id %>">
                 <img src="<%=pet.image %>">
             </a>
-            <p><%= pet.author.username %></p>
-            <p><%= pet.caption %></p>
         </div>
     <% })%>
 </div>
+
+
+<%- include("../partials/footer") %>

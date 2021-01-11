@@ -1,6 +1,12 @@
 <%- include("../partials/header") %>
 
-<h1><%= pet.caption %></h1>
-<h4>By: <%= pet.author.username %></h4>
-<img src="<%=pet.image %>">
-<p><%= pet.description %></p>
+<h1><%= post.title %></h1>
+<img src="<%=post.image %>">
+<p><%= post.description %></p>
+<a href="/pets/<%=post._id %>/edit">Edit</a>
+<form action="/pets/<%=post._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+</form>
+
+
+<%- include("../partials/footer") %>
