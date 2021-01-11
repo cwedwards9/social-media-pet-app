@@ -1,0 +1,12 @@
+<%- include("../partials/header") %>
+
+<h1>Edit a post</h1>
+<form action="/pets/<%=post._id %>?_method=PUT" method="POST">
+    <input type="text" name="title" placeholder="Title" value="<%= post.title %>">
+    <input type="text" name="image" placeholder="Enter picture URL" value="<%= post.image %>">
+    <input type="text" name="description" placeholder="Add a description" value="<%= post.description %>">
+    <button>Update</button>
+</form>
+
+
+<%- include("../partials/footer") %>
