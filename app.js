@@ -1,4 +1,5 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const app = express();
 const mongoose = require("mongoose");
 
@@ -24,6 +25,9 @@ app.use(express.json());
 app.use(express.static("public"));
 // Use ejs as as default template engine
 app.set("view engine", "ejs");
+
+// Use method-override to allow for PUT/DELETE requests from our forms
+app.use(methodOverride("_method"));
 
 // Import and use routes
 const indexRoutes = require("./routes/index");
