@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const middleware = require("../middleware");
 
 // INDEX route - show all pet posts
 router.get("/pets", (req, res) => {
@@ -12,12 +13,12 @@ router.get("/pets", (req, res) => {
 
 
 // NEW route - create a new post of your pet
-router.get("/pets/new", (req, res) => {
+router.get("/pets/new", middleware.isLoggedIn, (req, res) => {
     res.render("pets/new");
 });
 
 // CREATE route - add a new post to the database
-router.post("/pets", (req, res) => {
+router.post("/pets", middleware.isLoggedIn, (req, res) => {
     db.Post.create(req.body)
         .then(() => {
             res.redirect("/pets");
@@ -26,7 +27,7 @@ router.post("/pets", (req, res) => {
 
 
 // SHOW route - display more info about the pet post
-router.get("/pets/:id", (req, res) => {
+router.get("/pets/:id", middleware.isLoggedIn, (req, res) => {
     db.Post.findById(req.params.id)
         .then(foundPetPost => {
             res.render("pets/show", {post: foundPetPost});
@@ -35,7 +36,7 @@ router.get("/pets/:id", (req, res) => {
 
 
 // EDIT route - display edit form for a post
-router.get("/pets/:id/edit", (req, res) => {
+router.get("/pets/:id/edit", middleware.isLoggedIn, (req, res) => {
     db.Post.findById(req.params.id)
         .then(foundPetPost => {
             res.render("pets/edit", {post: foundPetPost});
@@ -43,7 +44,7 @@ router.get("/pets/:id/edit", (req, res) => {
 });
 
 // UPDATE route - update a post
-router.put("/pets/:id", (req, res) => {
+router.put("/pets/:id", middleware.isLoggedIn, (req, res) => {
     db.Post.findByIdAndUpdate(req.params.id, req.body)
         .then(() => {
             res.redirect(`/pets/${req.params.id}`);
@@ -52,7 +53,7 @@ router.put("/pets/:id", (req, res) => {
 
 
 // DELETE route - delete a post
-router.delete("/pets/:id", (req, res) => {
+router.delete("/pets/:id", middleware.isLoggedIn, (req, res) => {
     db.Post.findByIdAndDelete(req.params.id)
         .then(() => {
             res.redirect("/pets");
