@@ -2,7 +2,11 @@ const express = require("express");
 const methodOverride = require("method-override");
 const app = express();
 const mongoose = require("mongoose");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
 
+const User = require("./models/User");
 
 const URL = process.env.MONGODB_URI || "mongodb://localhost/petDB";
 
@@ -26,15 +30,26 @@ app.use(express.static("public"));
 // Use ejs as as default template engine
 app.set("view engine", "ejs");
 
+// Initialize Passport and allow persistent login session
+app.use(session({ secret: "thisisasupersecretsecretformyapp", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+// Use local strategy, authentication method is on our user model (help from passport-local-mongoose)
+passport.use(new LocalStrategy(User.authenticate()));
+
+// Store user in session / Take user out of session
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // Use method-override to allow for PUT/DELETE requests from our forms
 app.use(methodOverride("_method"));
 
 // Import and use routes
-const indexRoutes = require("./routes/index");
-const petsRoutes = require("./routes/pets");
+const userRoutes = require("./routes/users");
+const petRoutes = require("./routes/pets");
 
-app.use(indexRoutes);
-app.use(petsRoutes);
+app.use(userRoutes);
+app.use(petRoutes);
 
 const PORT = process.env.PORT || 3000;
 
