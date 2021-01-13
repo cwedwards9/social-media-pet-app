@@ -1,26 +1,22 @@
 const mongoose = require("mongoose");
+const passportLocalMongoose = require("passport-local-mongoose");
 
+// Create User schema, passport-local-mongoose will add a username, and hashed password
 const UserSchema = new mongoose.Schema ({
-    username: {
-        type: String,
-        unique: true,
-        trim: true,
-        required: "Username is required"
-    },
     email: {
         type: String,
         trim: true,
         unique: true,
         match: [/.+@.+\..+/, "Please enter a valid email address"]
     },
-    password: {
+    ownerName: {
         type: String,
         trim: true,
-        required: "Password is required",
-        // validate: {
-        //     minLength: [5, "Password is too weak"],
-        //     maxLength: [20, "Password is too long"]
-        // }
+    },
+    petName: {
+        type: String,
+        trim: true,
+        required: true
     },
     bio: {
         type: String,
@@ -34,5 +30,8 @@ const UserSchema = new mongoose.Schema ({
         default: Date.now
     }
 });
+
+// Add on methods to use for authentication
+UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", UserSchema);
