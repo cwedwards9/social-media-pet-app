@@ -1,6 +1,7 @@
 <%- include("../partials/header") %>
 
 <h1><%= post.title %></h1>
+<p>Posted By: <%=post.user.username %></p>
 <img src="<%=post.image %>">
 <p><%= post.description %></p>
 <a href="/pets/<%=post._id %>/edit">Edit</a>

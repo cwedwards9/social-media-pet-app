@@ -1,10 +1,17 @@
 <%- include("../partials/header") %>
 
 <div class="pet-homepage">
-    <h1>Home</h1>
+    <h2>Home</h2>
+    <div class="newPost">
+        <p>Username</p>
+        <a href="/pets/new">
+            <input type="text" placeholder="Create Post">
+        </a>
+    </div>
 
     <% posts.forEach(pet => { %>
         <div class="pet-post">
+            <p class="username">Posted By: <%= pet.user.username %></p>
             <p><%= pet.title %></p>
             <a href="/pets/<%= pet._id %>">
                 <img src="<%=pet.image %>">
