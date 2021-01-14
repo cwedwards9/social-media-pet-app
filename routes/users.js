@@ -19,7 +19,10 @@ router.post("/register", async (req, res) => {
         const { password, username, email, ownerName, petName } = req.body;
         const user = new User({username, email, ownerName, petName});
         const registeredUser = await User.register(user, password);
-        res.redirect("/pets");
+        req.login(registeredUser, err => {
+            if(err) return next(err);
+            res.redirect("/pets");
+        });
     } catch(err) {
         console.log(err.message);
         res.redirect("/register");
