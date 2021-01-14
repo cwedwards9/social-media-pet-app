@@ -6,6 +6,7 @@ const middleware = require("../middleware");
 // INDEX route - show all pet posts
 router.get("/pets", (req, res) => {
     db.Post.find({})
+        .populate("user")
         .then(pets => {
             res.render("pets/index", {posts: pets});
         });
@@ -19,16 +20,22 @@ router.get("/pets/new", middleware.isLoggedIn, (req, res) => {
 
 // CREATE route - add a new post to the database
 router.post("/pets", middleware.isLoggedIn, (req, res) => {
-    db.Post.create(req.body)
-        .then(() => {
+    const user = { id: req.user._id, username: req.user.username };
+    db.Post.create({...req.body, user: user})
+        .then(newPost => {
+            console.log(newPost);
             res.redirect("/pets");
         })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 
 // SHOW route - display more info about the pet post
 router.get("/pets/:id", middleware.isLoggedIn, (req, res) => {
     db.Post.findById(req.params.id)
+        .populate("user")
         .then(foundPetPost => {
             res.render("pets/show", {post: foundPetPost});
         });
