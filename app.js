@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+const flash = require("connect-flash");
 
 const User = require("./models/User");
 
@@ -40,6 +41,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 // Store user in session / Take user out of session
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// Use flash and set up a middleware for storing flash messages in session
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // Use method-override to allow for PUT/DELETE requests from our forms
 app.use(methodOverride("_method"));
