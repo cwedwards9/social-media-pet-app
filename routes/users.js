@@ -38,5 +38,12 @@ router.post("/login", passport.authenticate("local"), (req, res) => { //{failure
 });
 
 
+// GET route for loggin a user out of session
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/login");
+});
+
+
 
 module.exports = router;
