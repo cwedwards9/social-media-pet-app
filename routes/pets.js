@@ -43,7 +43,7 @@ router.get("/pets/:id", middleware.isLoggedIn, (req, res) => {
 
 
 // EDIT route - display edit form for a post
-router.get("/pets/:id/edit", middleware.isLoggedIn, (req, res) => {
+router.get("/pets/:id/edit", middleware.isPostOwner, (req, res) => {
     db.Post.findById(req.params.id)
         .then(foundPetPost => {
             res.render("pets/edit", {post: foundPetPost});
@@ -51,7 +51,7 @@ router.get("/pets/:id/edit", middleware.isLoggedIn, (req, res) => {
 });
 
 // UPDATE route - update a post
-router.put("/pets/:id", middleware.isLoggedIn, (req, res) => {
+router.put("/pets/:id", middleware.isPostOwner, (req, res) => {
     db.Post.findByIdAndUpdate(req.params.id, req.body)
         .then(() => {
             res.redirect(`/pets/${req.params.id}`);
@@ -60,7 +60,7 @@ router.put("/pets/:id", middleware.isLoggedIn, (req, res) => {
 
 
 // DELETE route - delete a post
-router.delete("/pets/:id", middleware.isLoggedIn, (req, res) => {
+router.delete("/pets/:id", middleware.isPostOwner, (req, res) => {
     db.Post.findByIdAndDelete(req.params.id)
         .then(() => {
             res.redirect("/pets");
