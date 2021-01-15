@@ -4,10 +4,13 @@
 <p>Posted By: <%=post.user.username %></p>
 <img src="<%=post.image %>">
 <p><%= post.description %></p>
+
+<% if(currentUser.username === post.user.username) { %>
 <a href="/pets/<%=post._id %>/edit">Edit</a>
 <form action="/pets/<%=post._id %>?_method=DELETE" method="POST">
     <button>Delete</button>
 </form>
+<% } %>
 
 
 <%- include("../partials/footer") %>
