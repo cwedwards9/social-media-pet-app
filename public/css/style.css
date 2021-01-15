@@ -1,5 +1,10 @@
+/* orange: #f08a1c - yellow/tan: #fcd481 - dark brown: #6c4414
+purple/brown: #9c7c76 - grayish/white: #e1d0c7 - light brown: #574727 */
+
 body {
     margin: 0;
+    background-color: #F7F7F7;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /* Navbar */
@@ -7,8 +12,15 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 20px 30px;
-    background-color: teal;
-    color: white;
+    background-color: #fcd481;
+}
+nav a {
+    color:#6c4414;
+    opacity: 90%;
+}
+nav a:hover {
+    color:#6c4414;
+    opacity: 100%;
 }
 
 nav li {
@@ -18,14 +30,129 @@ nav li {
 }
 
 
-/* Pets Homepage (pets/index) */
-.pet-post {
-    margin: 10px auto;
-    width: 40vw;
-    border: 1px solid black;
+
+/* Register AND Login Page */
+#register form,
+#login form {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    margin: 50px auto 0;
+    padding: 40px 25px;
+    background-color: white;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+}
+
+#register form h1,
+#login form h1 {
+    text-align: center;
+    margin: 15px 0;
+}
+
+#register form input,
+#login form input {
+    width: 90%;
+    height: 35px;
+    margin: 0 auto 10px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: lightgray;
+}
+#register form input:focus,
+#login form input:focus {
+    outline: none;
+}
+
+#register form button,
+#login form button {
+    margin: 25px auto 15px;
+    width: 25%;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 5px;
+    background-color: #f08a1c;
+    color: #6c4414;
+}
+#register form button:hover,
+#login form button:hover {
+    background-color: #ec8413;
+}
+
+.userLog-links {
+    margin-top: 20px;
+    text-align: center;
+}
+.userLog-links a {
+    text-decoration: none;
+}
+
+
+
+
+
+/* Pets Homepage (pets/index) */
+.pet-homepage h2 {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.newPost {
+    margin: 10px auto 50px;
+    padding: 15px;
+    width: 45vw;
+    border-radius: 5px;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+
+.newPost p {
+    display: inline;
+    padding-right: 10px;
+}
+
+.newPost input {
+    border: none;
+    padding: 5px 10px;
+    width: 90%;
+}
+
+
+.pet-post {
+    margin: 30px auto;
+    width: 45vw;
+    border-radius: 5px;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pet-post .username {
+    font-weight: bold;
+}
+
+.pet-post p {
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-bottom: 0;
 }
 
 .pet-post img {
     width: 100%;
+    padding: 20px;
+}
+
+
+
+
+
+/* New Pet Post Page/Form */
+.newPet-post h1 {
+    font-size: 25px;
+}
+
+.newPet-post form {
+    width: 65vw;
+    margin: 25px auto 25px;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: white;
 }
