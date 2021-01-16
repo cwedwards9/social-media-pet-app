@@ -1,16 +1,23 @@
 <%- include("../partials/header") %>
 
-<h1><%= post.title %></h1>
-<p>Posted By: <%=post.user.username %></p>
-<img src="<%=post.image %>">
-<p><%= post.description %></p>
+<div class="show-container">
+    <div class="pet-post-show">
+        <p class="username">Posted By: <%=post.user.username %> · <%=moment(post.createdAt).fromNow() %></p>
+        <h1><%= post.title %></h1>
+        <p><%= post.description %></p>
+        <img src="<%=post.image %>">
+    
+        <% if(currentUser.username === post.user.username) { %>
+        <div class="alter-post">
+            <a href="/pets/<%=post._id %>/edit"><i class="fas fa-pen"></i> Edit</a>
+            <form action="/pets/<%=post._id %>?_method=DELETE" method="POST">
+                <button><i class="fas fa-trash-alt"></i> Delete</button>
+            </form>
+        </div>
+        <% } %>
+    </div>
+</div>
 
-<% if(currentUser.username === post.user.username) { %>
-<a href="/pets/<%=post._id %>/edit">Edit</a>
-<form action="/pets/<%=post._id %>?_method=DELETE" method="POST">
-    <button>Delete</button>
-</form>
-<% } %>
 
 
 <%- include("../partials/footer") %>
