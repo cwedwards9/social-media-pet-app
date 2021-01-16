@@ -1,12 +1,15 @@
 <%- include("../partials/header") %>
 
-<h1>Create a new post</h1>
-<form action="/pets" method="POST">
-    <input type="text" name="title" placeholder="Title">
-    <input type="text" name="image" placeholder="Enter picture URL">
-    <input type="text" name="description" placeholder="Add a description">
-    <button>Post</button>
-</form>
+<div class="pet-post-form">
+    <form action="/pets" method="POST">
+        <h1>Create a post</h1>
+        <hr>
+        <input type="text" name="title" placeholder="Title" required>
+        <input type="text" name="image" placeholder="Enter picture URL" required>
+        <textarea rows="5" type="text" name="description" placeholder="Add a description" required></textarea>
+        <button>Post</button>
+    </form>
+</div>
 
 
 <%- include("../partials/footer") %>
