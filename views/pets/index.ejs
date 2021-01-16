@@ -2,12 +2,14 @@
 
 <div class="pet-homepage">
     <h2>Home</h2>
+    <% if(currentUser) { %>
     <div class="newPost">
         <p><%= currentUser.username %></p>
         <a href="/pets/new">
             <input type="text" placeholder="Create Post">
         </a>
     </div>
+    <% } %>
 
     <% posts.forEach(pet => { %>
         <div class="pet-post">
