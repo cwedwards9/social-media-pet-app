@@ -31,6 +31,9 @@ app.use(express.static("public"));
 // Use ejs as as default template engine
 app.set("view engine", "ejs");
 
+//For 'time since created' functionality
+app.locals.moment = require("moment");
+
 // Initialize Passport and allow persistent login session
 app.use(session({ secret: "thisisasupersecretsecretformyapp", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
