@@ -1,17 +1,20 @@
 <%- include("../partials/header") %>
 
+<%- include("../partials/flash") %>
 <div class="pet-homepage">
     <h2>Home</h2>
     <% if(currentUser) { %>
     <div class="newPost">
-        <p><%= currentUser.username %></p>
+        <div>
+            <p><%= currentUser.username %></p>
+        </div>
         <a href="/pets/new">
             <input type="text" placeholder="Create Post">
         </a>
     </div>
     <% } %>
 
-    <% posts.forEach(pet => { %>
+    <% posts.reverse().forEach(pet => { %>
         <div class="pet-post">
             <p class="username">Posted By: <%= pet.user.username %></p>
             <p><%= pet.title %></p>
@@ -21,6 +24,5 @@
         </div>
     <% })%>
 </div>
-
 
 <%- include("../partials/footer") %>
