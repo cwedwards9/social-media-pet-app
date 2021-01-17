@@ -15,6 +15,7 @@
 </head>
 <body>
     <div id="login">
+        <%- include("../partials/flash") %>
         <form action="/login" method="POST">
             <h1>Log In</h1>
             <input type="text" name="username" placeholder="Username" required="required">
@@ -26,5 +27,5 @@
             <a href="/register">Sign Up</a>
         </div>
     </div>
-</body>
-</html>
+
+<%- include("../partials/footer") %>
