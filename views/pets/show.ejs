@@ -10,14 +10,34 @@
         <% if(currentUser.username === post.user.username) { %>
         <div class="alter-post">
             <a href="/pets/<%=post._id %>/edit"><i class="fas fa-pen"></i> Edit</a>
-            <form action="/pets/<%=post._id %>?_method=DELETE" method="POST">
-                <button><i class="fas fa-trash-alt"></i> Delete</button>
-            </form>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                <i class="fas fa-trash-alt"></i> Delete
+            </button>
         </div>
         <% } %>
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete your post? You can't undo this.</p>
+            </div>
+            <div class="modal-footer">
+            <button id="modal-btn-close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <form action="/pets/<%=post._id %>?_method=DELETE" method="POST">
+                <button>Delete Post</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <%- include("../partials/footer") %>
