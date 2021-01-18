@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const User = require("../models/User");
+const Post = require("../models/Post");
 
 // Root route - redirect to login screen
 router.get("/", (req, res) => {
-    res.redirect("/login");
+    res.redirect("/pets");
 });
 
 // GET route for register page
@@ -21,10 +22,11 @@ router.post("/register", async (req, res) => {
         const registeredUser = await User.register(user, password);
         req.login(registeredUser, err => {
             if(err) return next(err);
+            req.flash("success", "Successfully registered!");
             res.redirect("/pets");
         });
-    } catch(err) {
-        console.log(err.message);
+    } catch(error) {
+        req.flash("error", "The email/username is already being used!");
         res.redirect("/register");
     }
 });
@@ -36,17 +38,18 @@ router.get("/login", (req, res) => {
 });
 
 // POST route for checking log in credentials
-router.post("/login", passport.authenticate("local"), (req, res) => { //{failureFlash: true, failureRedirect: "/login"}
-   res.redirect("/pets");
+router.post("/login", passport.authenticate("local", {failureFlash: true, failureRedirect: "/login"}), (req, res) => { 
+    req.flash("success", "Welcome Back!");
+    res.redirect("/pets");
 });
 
 
 // GET route for loggin a user out of session
 router.get("/logout", (req, res) => {
     req.logout();
+    req.flash("success", "Successfully Logged Out!");
     res.redirect("/login");
 });
-
 
 
 module.exports = router;
