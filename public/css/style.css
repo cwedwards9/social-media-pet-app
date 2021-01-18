@@ -85,13 +85,13 @@ nav li {
 #register form button:hover,
 #login form button:hover {
     box-shadow: 0 4px #afc5cc;
-    top: 2px;
+    top: 1px;
 }
 
 #register form button:active,
 #login form button:active {
     box-shadow: none;
-    top: 6px;
+    top: 4px;
   }
 
 .userLog-links {
@@ -120,7 +120,13 @@ nav li {
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
+.newPost div {
+    display: inline;
+    width: 15%;
+}
+
 .newPost p {
+    font-size: 100%;
     display: inline;
     padding-right: 10px;
 }
@@ -128,7 +134,10 @@ nav li {
 .newPost input {
     border: none;
     padding: 5px 10px;
-    width: 90%;
+    width: 80%;
+}
+.newPost input:focus {
+    outline: none;
 }
 
 .pet-post {
@@ -241,9 +250,68 @@ nav li {
     text-decoration: none;
 }
 
-.alter-post form button {
+.alter-post button {
     background: none;
     border: none;
     color: gray;
 }
+
+#deleteModal form button {
+    border: 1px solid #34555d;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #34555d;
+    color: white;
+}
+
+#modal-btn-close {
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: white;
+    color: #34555d;
+}
+
+.pet-post-comments-form,
+.pet-post-comments {
+    display: flex;
+    flex-direction: column;
+    margin: 25px auto 25px;
+    padding: 25px;
+    width: 50vw;
+    border-radius: 5px;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pet-post-comments-form h1 {
+    font-size: 18px;
+}
+.pet-post-comments-form span {
+    color: #34555d;
+}
+
+.pet-post-comments-form textarea {
+    margin: 10px 0;
+    border: none;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.pet-post-comments-form button {
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #144c94;
+    color: white;
+}
+
+.comment {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 
