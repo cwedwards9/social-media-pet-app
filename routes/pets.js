@@ -36,6 +36,7 @@ router.post("/pets", middleware.isLoggedIn, (req, res) => {
 router.get("/pets/:id", middleware.isLoggedIn, (req, res) => {
     db.Post.findById(req.params.id)
         .populate("user")
+        .populate("comments")
         .then(foundPetPost => {
             res.render("pets/show", {post: foundPetPost});
         });
