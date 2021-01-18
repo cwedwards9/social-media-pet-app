@@ -60,9 +60,11 @@ app.use(methodOverride("_method"));
 // Import and use routes
 const userRoutes = require("./routes/users");
 const petRoutes = require("./routes/pets");
+const commentRoutes = require("./routes/comments");
 
 app.use(userRoutes);
 app.use(petRoutes);
+app.use(commentRoutes);
 
 const PORT = process.env.PORT || 3000;
 
