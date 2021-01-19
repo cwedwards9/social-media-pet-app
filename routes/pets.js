@@ -21,10 +21,15 @@ router.get("/pets/new", middleware.isLoggedIn, (req, res) => {
 // CREATE route - add a new post to the database
 router.post("/pets", middleware.isLoggedIn, (req, res) => {
     const user = { id: req.user._id, username: req.user.username };
-    db.Post.create({...req.body, user: user})
-        .then(newPost => {
-            console.log(newPost);
-            res.redirect("/pets");
+    db.User.findById(req.user._id)
+        .then(foundUser => {
+            db.Post.create({...req.body, user: user})
+                .then(newPost => {
+                    newPost.save();
+                    foundUser.posts.push(newPost._id);
+                    foundUser.save();
+                    res.redirect("/pets");
+                })
         })
         .catch(err => {
             console.log(err);
