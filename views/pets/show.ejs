@@ -1,6 +1,8 @@
 <%- include("../partials/header") %>
 
 <div class="show-container">
+    <%- include("../partials/flash") %>
+    
     <div class="pet-post-show">
         <p class="username">Posted By: <%=post.user.username %> · <%=moment(post.createdAt).fromNow() %></p>
         <h1><%= post.title %></h1>
@@ -26,10 +28,17 @@
     </div>
 
     <div class="pet-post-comments">
+        <h1>Comments</h1>
         <% post.comments.forEach(comment => { %>
             <div class="comment">
                 <p><%= comment.user.username %> · <%=moment(comment.createdAt).fromNow() %></p>
                 <p><%= comment.text %></p>
+            
+                <% if(currentUser.username === comment.user.username) { %>
+                <form action="/pets/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                    <button><i class="fas fa-trash-alt"></i> Delete Comment</button>
+                </form>
+                <% } %>
             </div>
         <% }) %>
     </div>
