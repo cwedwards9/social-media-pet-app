@@ -20,15 +20,18 @@ const UserSchema = new mongoose.Schema ({
     },
     bio: {
         type: String,
-        trim: true,
-        // validate: {
-        //     maxLength: 200
-        // }
+        trim: true
     },
     userCreated: {
         type: Date,
         default: Date.now
-    }
+    },
+    posts: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Post"
+        }
+    ]
 });
 
 // Add on methods to use for authentication
