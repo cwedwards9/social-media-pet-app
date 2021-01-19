@@ -13,7 +13,7 @@ const middlewareAuth = {
         next();
     },
 
-    // Restrict routes if a user is not the authorized user
+    // Restrict post routes if a user is not the authorized user
     isPostOwner(req, res, next) {
         // If the user is logged in, continue to check the ownership of the post
         if(req.isAuthenticated()){
@@ -34,7 +34,30 @@ const middlewareAuth = {
             // If the user isn't authenticated / logged in, redirect them
             res.redirect("/pets");
         }
-    }
+    },
+
+    // Restrict comment routes if a user is not the authorized user
+    isCommentOwner(req, res, next) {
+        // If the user is logged in, continue to check the ownership of the post
+        if(req.isAuthenticated()){
+            db.Comment.findById(req.params.comment_id, function(err, foundComment){
+                if(err){
+                    res.redirect("/pets");
+                } else {
+                    // If the desired post's 'author' is equal to the current user, continue the request
+                    if(foundComment.user.id.equals(req.user._id)) {
+                        next();
+                    } else {
+                        // If the user is not the owner of the post, redirect them
+                        res.redirect("/pets")
+                    }
+                }
+            })
+        } else {
+            // If the user isn't authenticated / logged in, redirect them
+            res.redirect("/pets");
+        }
+    }    
 }
 
 

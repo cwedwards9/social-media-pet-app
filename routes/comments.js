@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 const middleware = require("../middleware");
 
-router.post("/pets/:id/comments", (req, res) => {
+router.post("/pets/:id/comments", middleware.isLoggedIn, (req, res) => {
     const user = { id: req.user._id, username: req.user.username };
     db.Post.findById(req.params.id)
         .then(post => {
@@ -15,8 +15,20 @@ router.post("/pets/:id/comments", (req, res) => {
                     res.redirect('back');
                 })
                 .catch(err => {
-                    console.log(err);
+                    res.redirect("back");
                 });
+        });
+});
+
+
+router.delete("/pets/:id/comments/:comment_id", (req, res) => {
+    db.Comment.findByIdAndDelete(req.params.comment_id)
+        .then(() => {
+            req.flash("success", "Comment successfully deleted!");
+            res.redirect(`/pets/${req.params.id}`);
+        })
+        .catch(err => {
+            res.redirect("back");
         });
 });
 
