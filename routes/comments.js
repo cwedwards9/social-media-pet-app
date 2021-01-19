@@ -21,7 +21,7 @@ router.post("/pets/:id/comments", middleware.isLoggedIn, (req, res) => {
 });
 
 
-router.delete("/pets/:id/comments/:comment_id", (req, res) => {
+router.delete("/pets/:id/comments/:comment_id", middleware.isCommentOwner, (req, res) => {
     db.Comment.findByIdAndDelete(req.params.comment_id)
         .then(() => {
             req.flash("success", "Comment successfully deleted!");
