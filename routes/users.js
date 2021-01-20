@@ -54,7 +54,7 @@ router.get("/logout", (req, res) => {
 
 
 // GET route for user profile
-router.get("/:username/:id", (req, res) => {
+router.get("/user/:username/:id", (req, res) => {
     User.findById(req.params.id)
         .populate("posts")
         .then(foundUsername => {
