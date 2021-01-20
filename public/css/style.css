@@ -4,6 +4,20 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.username {
+    color: #578a97;
+    text-decoration: none;
+}
+.username:hover {
+    color: #34555d;
+}
+
+.postedBy {
+    font-weight: bold;
+}
+
+
+
 /* Navbar */
 nav {
     display: flex;
@@ -13,16 +27,11 @@ nav {
 }
 nav a {
     color: #34555d;
+    margin-left: 10px;
 }
 nav a:hover {
     color: #487581;
     opacity: 100%;
-}
-
-nav li {
-    list-style: none;
-    display: inline;
-    margin-left: 10px;
 }
 
 .navbar-toggler-icon .fa-bars {
@@ -147,10 +156,6 @@ nav li {
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
-.pet-post .username {
-    font-weight: bold;
-}
-
 .pet-post p {
     padding-left: 20px;
     padding-top: 10px;
@@ -219,7 +224,7 @@ nav li {
     display: flex;
     flex-direction: column;
     margin: 25px auto 50px;
-    padding: 25px;
+    padding: 25px 25px 10px;
     width: 50vw;
     border-radius: 5px;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
@@ -239,13 +244,14 @@ nav li {
     border-radius: 2px;
 }
 
-.alter-post {
+.post-extras {
     display: flex;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
+.post-extras p,
 .alter-post a {
-    margin-right: 10px;
+    margin: 0 15px 0 0;
     color: gray;
     text-decoration: none;
 }
@@ -283,11 +289,9 @@ nav li {
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
-.pet-post-comments-form h1 {
+.pet-post-comments-form h1,
+.pet-post-comments h1 {
     font-size: 18px;
-}
-.pet-post-comments-form span {
-    color: #34555d;
 }
 
 .pet-post-comments-form textarea {
@@ -314,4 +318,63 @@ nav li {
     border-radius: 5px;
 }
 
+.comment form button {
+    font-size: 13px;
+    background: none;
+    border: none;
+    color: gray;
+    float: right;
+}
+
+
+
+
+
+/* User Profile */
+.user-profile {
+    width: 75vw;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.user-info {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.user-basics,
+.biography {
+    width: 50%;
+    margin-right: 5px;
+    padding: 5px;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.user-basics a {
+    border: 1px solid #144c94;
+    border-radius: 20px;
+    background-color: #144c94;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+
+.users-posts {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.users-posts div {
+    width: 75%;
+    margin: 0 auto 25px;
+    padding: 20px;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.users-posts div img {
+    width: 100%;
+}
 
