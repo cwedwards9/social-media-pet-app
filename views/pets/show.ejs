@@ -4,34 +4,41 @@
     <%- include("../partials/flash") %>
     
     <div class="pet-post-show">
-        <p class="username">Posted By: <%=post.user.username %> · <%=moment(post.createdAt).fromNow() %></p>
+        <p class="postedBy">Posted By: <a href="/user/<%=post.user.username %>/<%=post.user.id %>" class="username"><%=post.user.username %></a> 
+            · <%=moment(post.createdAt).fromNow() %>
+        </p>
         <h1><%= post.title %></h1>
         <p><%= post.description %></p>
         <img src="<%=post.image %>">
-    
-        <% if(currentUser.username === post.user.username) { %>
-        <div class="alter-post">
-            <a href="/pets/<%=post._id %>/edit"><i class="fas fa-pen"></i> Edit</a>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                <i class="fas fa-trash-alt"></i> Delete
-            </button>
+        <div class="post-extras">
+            <p><i class="fas fa-comment-alt"></i> <%= post.comments.length %> Comments</p>
+            <% if(currentUser.username === post.user.username) { %>
+            <div class="alter-post">
+                <a href="/pets/<%=post._id %>/edit"><i class="fas fa-pen"></i> Edit</a>
+                <button type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </button>
+            </div>
+            <% } %>
         </div>
-        <% } %>
     </div>
 
     <div class="pet-post-comments-form">
-        <h1>Comment as <span><%= currentUser.username %></span></h1>
+        <h1>Comment as <a href="/user/<%= currentUser.username %>/<%= currentUser._id %>" class="username"><%= currentUser.username %></a></h1>
         <form action="/pets/<%=post._id%>/comments" method="POST">
             <textarea name="text" placeholder="What are your thoughts?" rows="4" maxlength="100" required></textarea>
             <button>Comment</button>
         </form>
     </div>
 
+    <% if(post.comments.length > 0) { %>
     <div class="pet-post-comments">
         <h1>Comments</h1>
         <% post.comments.forEach(comment => { %>
             <div class="comment">
-                <p><%= comment.user.username %> · <%=moment(comment.createdAt).fromNow() %></p>
+                <p><a href="/user/<%= comment.user.username %>/<%= comment.user.id %>" class="username"><%= comment.user.username %></a> 
+                    · <%=moment(comment.createdAt).fromNow() %>
+                </p>
                 <p><%= comment.text %></p>
             
                 <% if(currentUser.username === comment.user.username) { %>
@@ -42,6 +49,7 @@
             </div>
         <% }) %>
     </div>
+    <% } %>
 </div>
 
 <!-- Modal -->
