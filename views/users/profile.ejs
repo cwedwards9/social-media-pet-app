@@ -1,6 +1,35 @@
-<div>
-    <h1>Profile</h1>
-    <p>Username: <%= user.username %></p>
-    <p>Owner: <%= user.ownerName %></p>
-    <p>Pet: <%= user.petName %></p>
-</div>
+<%- include("../partials/header") %>
+
+<main class="user-profile">
+    <section class="user-info">
+        <div class="user-basics">
+            <h3>User</h3>
+            <p class="name"><%= user.username %></p>
+            <p class="owner-name">Owner: <%= user.ownerName %></p>
+            <p class="pet-name">Pet: <%= user.petName %></p>
+            <p>Posts: <%= user.posts.length %></p>
+            <p><i class="far fa-calendar-alt"></i> Joined <%= moment(user.userCreated).format("MMMM YYYY") %></p>
+            <a href="/pets/new">New Post</a>
+        </div>
+        
+        <div class="biography">
+            <h3>Bio</h3>
+            <p></p>
+        </div>
+
+    </section>
+
+    <section class="users-posts">
+        <h1>Posts:</h1>
+        <% user.posts.reverse().forEach(post => { %>
+            <div>
+                <p class="postedBy">
+                    Posted: <%=moment(post.createdAt).fromNow() %>
+                </p>
+                <a href="/pets/<%= post._id %>">
+                    <img src="<%=post.image %>">
+                </a>
+            </div>
+        <% }) %>
+    </section>
+</main>
