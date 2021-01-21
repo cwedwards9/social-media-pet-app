@@ -338,36 +338,52 @@ nav a:hover {
 }
 
 .user-info {
-    display: flex;
-    margin-bottom: 25px;
+    margin: 0 auto 25px;
 }
 
-.user-basics,
-.biography {
+.user-info-names,
+.user-info-activity {
     width: 50%;
-    margin-right: 5px;
-    padding: 5px;
-    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
 }
 
-.user-basics a {
-    border: 1px solid #144c94;
+.user-info-names p,
+.user-info-activity p {
+    font-size: 20px;
+    margin-right: 10%;
+}
+
+.user-edit {
+    text-align: center;
+}
+
+.user-edit-btn {
+    border: 1px solid #34555d;
     border-radius: 20px;
-    background-color: #144c94;
-    color: white;
     padding: 5px 10px;
+    background-color: #34555d;
+    color: white;
     text-decoration: none;
 }
+.user-edit-btn:hover {
+    color: white;
+}
 
+.user-info .bio {
+    text-align: center;
+    font-size: 18px;
+}
 
-.users-posts {
-    border: 1px solid black;
-    padding: 10px;
+.users-posts h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .users-posts div {
-    width: 75%;
+    width: 60%;
     margin: 0 auto 25px;
     padding: 20px;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
@@ -378,3 +394,34 @@ nav a:hover {
     width: 100%;
 }
 
+.user-edit-form form {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 25px auto 25px;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-edit-form h1 {
+    font-size: 25px;
+}
+
+.user-edit-form textarea {
+    margin: 10px 0;
+    border: none;
+    border: 1px solid #EAEAEA;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.user-edit-form button {
+    width: 10%;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 5px;
+    background-color: #24b4e9;
+    color: white;
+}
