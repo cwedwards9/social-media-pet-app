@@ -2,30 +2,33 @@
 
 <main class="user-profile">
     <section class="user-info">
-        <div class="user-basics">
-            <h3>User</h3>
-            <p class="name"><%= user.username %></p>
-            <p class="owner-name">Owner: <%= user.ownerName %></p>
-            <p class="pet-name">Pet: <%= user.petName %></p>
+        <div class="user-info-names">
+            <p class="username"><%= user.username %></p>
+            <p><i class="far fa-user"></i> <%= user.ownerName %></p>
+            <p><i class="fas fa-paw"></i> <%= user.petName %></p>
+        </div>
+        <div class="user-info-activity">
             <p>Posts: <%= user.posts.length %></p>
             <p><i class="far fa-calendar-alt"></i> Joined <%= moment(user.userCreated).format("MMMM YYYY") %></p>
-            <a href="/pets/new">New Post</a>
         </div>
+        <p class="bio"><%= user.bio %></p>
+        <% if(currentUser.username === user.username) { %>
+            <div class="user-edit">
+                <a href="/user/<%= user._id %>/edit" class="user-edit-btn"><i class="fas fa-pen"></i> Edit Profile</a>
+            </div>
+        <% } %>
         
-        <div class="biography">
-            <h3>Bio</h3>
-            <p></p>
-        </div>
-
+        <hr>
     </section>
 
     <section class="users-posts">
-        <h1>Posts:</h1>
+        <h1><i class="fas fa-photo-video"></i> <%= user.ownerName %>'s Posts</h1>
         <% user.posts.reverse().forEach(post => { %>
             <div>
                 <p class="postedBy">
                     Posted: <%=moment(post.createdAt).fromNow() %>
                 </p>
+                <p><%= post.title %></p>
                 <a href="/pets/<%= post._id %>">
                     <img src="<%=post.image %>">
                 </a>
