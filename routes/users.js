@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const User = require("../models/User");
-const Post = require("../models/Post");
+const middleware = require("../middleware");
 
 // Root route - redirect to login screen
 router.get("/", (req, res) => {
@@ -54,12 +54,28 @@ router.get("/logout", (req, res) => {
 
 
 // GET route for user profile
-router.get("/user/:username/:id", (req, res) => {
+router.get("/user/:id", middleware.isLoggedIn, (req, res) => {
     User.findById(req.params.id)
         .populate("posts")
         .then(foundUsername => {
             res.render("users/profile", {user: foundUsername});
         })
+});
+
+// EDIT route - display a form for a user to edit their profile
+router.get("/user/:id/edit", middleware.isUser, (req, res) => {
+    User.findById(req.params.id)
+        .then(foundUser => {
+            res.render("users/edit", {user: foundUser});
+        })
+});
+
+// UPDATE route - update a user's profile
+router.put("/user/:id", middleware.isUser, (req, res) => {
+    User.findByIdAndUpdate(req.params.id, req.body)
+    .then((user) => {
+        res.redirect(`/user/${user._id}`);
+    })
 });
 
 
