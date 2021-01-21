@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+
+<div class="user-edit-form">
+    <form action="/user/<%=user._id %>?_method=PUT" method="POST">
+        <h1>Edit Profile</h1>
+        <hr>
+        <label for="profile-bio-input">Bio:</label>
+        <textarea id="profile-bio-input" rows="3" type="text" name="bio" placeholder="Add a description" maxlength="120" required>
+            <%= user.bio %>
+        </textarea>
+        <button>Update</button>
+    </form>
+</div>
+
+
+
+<%- include("../partials/footer") %>
