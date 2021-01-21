@@ -6,7 +6,7 @@
     <% if(currentUser) { %>
     <div class="newPost">
         <div>
-            <a href="/user/<%= currentUser.username %>/<%= currentUser._id %>" class="username"><%= currentUser.username %></a>
+            <a href="/user/<%= currentUser._id %>" class="username"><%= currentUser.username %></a>
         </div>
         <a href="/pets/new">
             <input type="text" placeholder="Create Post">
@@ -17,7 +17,7 @@
     <% posts.reverse().forEach(pet => { %>
         <div class="pet-post">
             <p class="postedBy">
-                Posted By: <a href="/user/<%=pet.user.username%>/<%=pet.user.id %>" class="username"><%= pet.user.username %></a> 
+                Posted By: <a href="/user/<%=pet.user.id %>" class="username"><%= pet.user.username %></a> 
                 · <%=moment(pet.createdAt).fromNow() %>
             </p>
             <p><%= pet.title %></p>
