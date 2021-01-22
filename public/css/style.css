@@ -22,12 +22,12 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 1.5rem 2rem;
     background-color: #bfd6dd;
 }
 nav a {
     color: #34555d;
-    margin-left: 10px;
+    margin-left: 1rem;
 }
 nav a:hover {
     color: #487581;
@@ -36,7 +36,7 @@ nav a:hover {
 
 .navbar-toggler-icon .fa-bars {
     color: #34555d; 
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 
@@ -47,8 +47,8 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     width: 35vw;
-    margin: 50px auto 0;
-    padding: 40px 25px;
+    margin: 3rem auto 0;
+    padding: 2.5rem 1.5rem;
     background-color: white;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -57,17 +57,17 @@ nav a:hover {
 #register form h1,
 #login form h1 {
     text-align: center;
-    margin: 15px 0;
+    margin: 1rem 0;
 }
 
 #register form input,
 #login form input {
     width: 90%;
-    height: 35px;
-    margin: 0 auto 10px;
-    padding-left: 10px;
+    height: 2rem;
+    margin: 0 auto 0.75rem;
+    padding-left: 0.75rem;
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     background-color: lightgray;
 }
 #register form input:focus,
@@ -77,10 +77,10 @@ nav a:hover {
 
 #register form button,
 #login form button {
-    margin: 25px auto 15px;
-    width: 25%;
+    margin: 1.5rem auto 1rem;
+    width: 30%;
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 5px;
     background-color:#bfd6dd;
     color: black;
@@ -104,11 +104,25 @@ nav a:hover {
   }
 
 .userLog-links {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     text-align: center;
 }
 .userLog-links a {
     text-decoration: none;
+}
+
+@media only screen and (max-width: 800px) {
+    #register form,
+    #login form { 
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    #register form,
+    #login form { 
+        width: 80vw;
+    }
 }
 
 
@@ -118,12 +132,12 @@ nav a:hover {
 /* Pets Homepage (pets/index) */
 .pet-homepage h2 {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 1.5rem;
 }
 
 .newPost {
-    margin: 10px auto 50px;
-    padding: 15px;
+    margin: 0.75rem auto 3rem;
+    padding: 1rem;
     width: 45vw;
     border-radius: 5px;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
@@ -137,7 +151,7 @@ nav a:hover {
 .newPost p {
     font-size: 100%;
     display: inline;
-    padding-right: 10px;
+    padding-right: 0.75rem;
 }
 
 .newPost input {
@@ -150,21 +164,36 @@ nav a:hover {
 }
 
 .pet-post {
-    margin: 30px auto;
+    margin: 2rem auto;
     width: 45vw;
     border-radius: 5px;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
 .pet-post p {
-    padding-left: 20px;
-    padding-top: 10px;
+    padding-left: 1.25rem;
+    padding-top: 0.75rem;
     margin-bottom: 0;
 }
 
 .pet-post img {
     width: 100%;
-    padding: 20px;
+    padding: 1.25rem;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .newPost,
+    .pet-post {
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .newPost,
+    .pet-post {
+        width: 80vw;
+    }
 }
 
 
@@ -172,27 +201,31 @@ nav a:hover {
 
 
 /* New and Edit Page (Form) - Pet Post */
+.pet-post-form {
+    margin-top: 1.5rem
+}
+
 .pet-post-form form {
     display: flex;
     flex-direction: column;
-    width: 65vw;
-    margin: 25px auto 25px;
-    padding: 25px;
+    width: 55vw;
+    margin: 0 auto 1.5rem;
+    padding: 1.5rem;
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
 .pet-post-form h1 {
-    font-size: 25px;
+    font-size: 1.5rem;
 }
 
 .pet-post-form input {
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
     border: 1px solid #EAEAEA;
     border-radius: 5px;
-    height: 35px;
-    padding-left: 10px;
+    height: 2rem;
+    padding-left: 0.75rem;
 }
 .pet-post-form input:focus {
     outline: none;
@@ -203,16 +236,28 @@ nav a:hover {
     border: none;
     border: 1px solid #EAEAEA;
     border-radius: 5px;
-    padding-left: 10px;
+    padding-left: 0.75rem;
 }
 
 .pet-post-form button {
-    width: 10%;
+    width: 20%;
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 5px;
     background-color: #24b4e9;
     color: white;
+}
+
+@media only screen and (max-width: 700px) {
+    .pet-post-form form {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .pet-post-form button {
+        width: 25%;
+    }
 }
 
 
@@ -223,8 +268,8 @@ nav a:hover {
 .pet-post-show {
     display: flex;
     flex-direction: column;
-    margin: 25px auto 50px;
-    padding: 25px 25px 10px;
+    margin: 1.5rem auto 50px;
+    padding: 1.5rem 1.5rem 0.75rem;
     width: 50vw;
     border-radius: 5px;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
@@ -246,12 +291,12 @@ nav a:hover {
 
 .post-extras {
     display: flex;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 .post-extras p,
 .alter-post a {
-    margin: 0 15px 0 0;
+    margin: 0 1.25rem 0 0;
     color: gray;
     text-decoration: none;
 }
@@ -264,7 +309,7 @@ nav a:hover {
 
 #deleteModal form button {
     border: 1px solid #34555d;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 10px;
     background-color: #34555d;
     color: white;
@@ -272,7 +317,7 @@ nav a:hover {
 
 #modal-btn-close {
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 10px;
     background-color: white;
     color: #34555d;
@@ -282,8 +327,8 @@ nav a:hover {
 .pet-post-comments {
     display: flex;
     flex-direction: column;
-    margin: 25px auto 25px;
-    padding: 25px;
+    margin: 1.25rem auto 1.25rem;
+    padding: 1.25rem;
     width: 50vw;
     border-radius: 5px;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
@@ -291,21 +336,22 @@ nav a:hover {
 
 .pet-post-comments-form h1,
 .pet-post-comments h1 {
-    font-size: 18px;
+    font-size: 1.25rem;
 }
 
 .pet-post-comments-form textarea {
-    margin: 10px 0;
+    margin: 0.75rem 0;
     border: none;
     border: 1px solid #EAEAEA;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.75rem;
     width: 100%;
+    font-size: 1rem;
 }
 
 .pet-post-comments-form button {
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 10px;
     background-color: #144c94;
     color: white;
@@ -313,7 +359,7 @@ nav a:hover {
 
 .comment {
     background-color: white;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     padding: 10px;
     border-radius: 5px;
 }
@@ -327,32 +373,49 @@ nav a:hover {
 }
 
 
+@media only screen and (max-width: 800px) {
+    .pet-post-show,
+    .pet-post-comments-form,
+    .pet-post-comments {
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .pet-post-show,
+    .pet-post-comments-form,
+    .pet-post-comments {
+        width: 95vw;
+    }
+}
+
+
 
 
 
 /* User Profile */
 .user-profile {
-    width: 75vw;
+    width: 80vw;
     margin: 0 auto;
     padding: 2rem 0;
 }
 
 .user-info {
-    margin: 0 auto 25px;
+    margin: 0 auto 1.5rem;
 }
 
 .user-info-names,
 .user-info-activity {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .user-info-names p,
 .user-info-activity p {
-    font-size: 20px;
-    margin-right: 10%;
+    font-size: 1.25rem;
+    margin-right: 5%;
 }
 
 .user-edit {
@@ -361,7 +424,7 @@ nav a:hover {
 
 .user-edit-btn {
     border: 1px solid #34555d;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 10px;
     background-color: #34555d;
     color: white;
@@ -372,8 +435,9 @@ nav a:hover {
 }
 
 .user-info .bio {
+    margin-top: 1.25rem;
     text-align: center;
-    font-size: 18px;
+    font-size: 1.2rem;
 }
 
 .users-posts h1 {
@@ -383,9 +447,9 @@ nav a:hover {
 }
 
 .users-posts div {
-    width: 60%;
-    margin: 0 auto 25px;
-    padding: 20px;
+    width: 60vw;
+    margin: 0 auto 1.5rem;
+    padding: 1.25rem;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -394,19 +458,42 @@ nav a:hover {
     width: 100%;
 }
 
+
+@media only screen and (max-width: 800px) {
+    .users-posts div {
+        width: 85vw;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .user-info-activity p {
+        font-size: 1rem;
+        margin-right: 4%;
+    }
+}
+
+
+
+
+
+/* User Edit Form */
+.user-edit-form {
+    margin-top: 1.5rem;
+}
+
 .user-edit-form form {
     display: flex;
     flex-direction: column;
     width: 50vw;
-    margin: 25px auto 25px;
-    padding: 25px;
+    margin: 0 auto 1.5rem;
+    padding: 1.5rem;
     border-radius: 5px;
     background-color: white;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
 }
 
 .user-edit-form h1 {
-    font-size: 25px;
+    font-size: 1.5rem;
 }
 
 .user-edit-form textarea {
@@ -418,10 +505,31 @@ nav a:hover {
 }
 
 .user-edit-form button {
-    width: 10%;
+    width: 20%;
     border: none;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 5px 5px;
     background-color: #24b4e9;
     color: white;
+}
+
+
+@media only screen and (max-width: 900px) {
+    .user-edit-form form {
+        width: 60vw;
+    }
+
+    .user-edit-form button {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .user-edit-form form {
+        width: 90vw;
+    }
+
+    .user-edit-form button {
+        width: 25%;
+    }
 }
