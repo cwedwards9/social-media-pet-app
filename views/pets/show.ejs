@@ -1,9 +1,9 @@
 <%- include("../partials/header") %>
 
-<div class="show-container">
+<main class="show-container">
     <%- include("../partials/flash") %>
     
-    <div class="pet-post-show">
+    <section class="pet-post-show">
         <p class="postedBy">Posted By: <a href="/user/<%=post.user.id %>" class="username"><%=post.user.username %></a> 
             · <%=moment(post.createdAt).fromNow() %>
         </p>
@@ -21,18 +21,18 @@
             </div>
             <% } %>
         </div>
-    </div>
+    </section>
 
-    <div class="pet-post-comments-form">
+    <section class="pet-post-comments-form">
         <h1>Comment as <a href="/user/<%= currentUser._id %>" class="username"><%= currentUser.username %></a></h1>
         <form action="/pets/<%=post._id%>/comments" method="POST">
             <textarea name="text" placeholder="What are your thoughts?" rows="4" maxlength="100" required></textarea>
             <button>Comment</button>
         </form>
-    </div>
+    </section>
 
     <% if(post.comments.length > 0) { %>
-    <div class="pet-post-comments">
+    <section class="pet-post-comments">
         <h1>Comments</h1>
         <% post.comments.forEach(comment => { %>
             <div class="comment">
@@ -48,9 +48,11 @@
                 <% } %>
             </div>
         <% }) %>
-    </div>
+    </section>
     <% } %>
-</div>
+</main>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">

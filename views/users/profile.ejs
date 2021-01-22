@@ -8,8 +8,8 @@
             <p><i class="fas fa-paw"></i> <%= user.petName %></p>
         </div>
         <div class="user-info-activity">
-            <p>Posts: <%= user.posts.length %></p>
-            <p><i class="far fa-calendar-alt"></i> Joined <%= moment(user.userCreated).format("MMMM YYYY") %></p>
+            <p><i class="fas fa-photo-video"></i> Posts: <%= user.posts.length %></p>
+            <p><i class="far fa-calendar-alt"></i> Joined: <%= moment(user.userCreated).format("MMMM YYYY") %></p>
         </div>
         <p class="bio"><%= user.bio %></p>
         <% if(currentUser.username === user.username) { %>

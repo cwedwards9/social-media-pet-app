@@ -1,31 +1,33 @@
 <%- include("../partials/header") %>
 
 <%- include("../partials/flash") %>
-<div class="pet-homepage">
+<main class="pet-homepage">
     <h2>Home</h2>
     <% if(currentUser) { %>
-    <div class="newPost">
+    <section class="newPost">
         <div>
             <a href="/user/<%= currentUser._id %>" class="username"><%= currentUser.username %></a>
         </div>
         <a href="/pets/new">
             <input type="text" placeholder="Create Post">
         </a>
-    </div>
+    </section>
     <% } %>
 
+
     <% posts.reverse().forEach(pet => { %>
-        <div class="pet-post">
-            <p class="postedBy">
-                Posted By: <a href="/user/<%=pet.user.id %>" class="username"><%= pet.user.username %></a> 
-                · <%=moment(pet.createdAt).fromNow() %>
-            </p>
-            <p><%= pet.title %></p>
-            <a href="/pets/<%= pet._id %>">
-                <img src="<%=pet.image %>">
-            </a>
-        </div>
+    <section class="pet-post">
+        <p class="postedBy">
+            Posted By: <a href="/user/<%=pet.user.id %>" class="username"><%= pet.user.username %></a> 
+            · <%=moment(pet.createdAt).fromNow() %>
+        </p>
+        <p><%= pet.title %></p>
+        <a href="/pets/<%= pet._id %>">
+            <img src="<%=pet.image %>">
+        </a>
+    </section>
     <% })%>
-</div>
+    
+</main>
 
 <%- include("../partials/footer") %>
