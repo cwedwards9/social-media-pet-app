@@ -2,7 +2,7 @@
 
 <%- include("../partials/flash") %>
 <main class="pet-homepage">
-    <h2>Home</h2>
+    <img src="/img/orange-bg-logo.png">
     <% if(currentUser) { %>
     <section class="newPost">
         <div>
@@ -12,6 +12,10 @@
             <input type="text" placeholder="Create Post">
         </a>
     </section>
+    <% } %>
+
+    <% if(!posts.length) { %>
+        <h2>No posts have been made yet. Be the first to Post!</h2>
     <% } %>
 
 

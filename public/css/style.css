@@ -142,14 +142,14 @@ div#login {
 
 
 /* Pets Homepage (pets/index) */
-.pet-homepage h2 {
-    font-family: 'Varela Round', sans-serif;
-    text-align: center;
-    margin-top: 1.5rem;
+.pet-homepage img {
+    display: block;
+    margin: 1rem auto;
+    width: 5rem;
 }
 
 .newPost {
-    margin: 2rem auto 3rem;
+    margin: 1rem auto 3rem;
     padding: 1rem;
     width: 45vw;
     border-radius: 5px;
@@ -415,6 +415,10 @@ div#login {
 
 .user-info {
     margin: 0 auto 1.5rem;
+}
+
+.username img {
+    width: 2.5rem;
 }
 
 .user-info-names,
