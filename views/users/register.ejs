@@ -7,25 +7,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Varela+Round&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
 
     <title>PetIt App - View pets of all kind</title>
 </head>
 <body>
-    <main id="register">
+    <main>
         <%- include("../partials/flash") %>
-        <form action="/register" method="POST">
-            <h1>Sign Up</h1>
-            <input type="text" name="username" placeholder="Username" required="required">
-            <input type="password" name="password" placeholder="Password" required="required">
-            <hr>
-            <input type="email" name="email" placeholder="Email" required="required">
-            <input type="text" name="ownerName" placeholder="Owner's Name" required="required">
-            <input type="text" name="petName" placeholder="Pet's Name" required="required">
-            <button>Register</button>
-        </form>
+        <div id="register">
+        <img src="/img/orange-bg-logo.png">
+            <form action="/register" method="POST">
+                <h1>Sign Up</h1>
+                <input type="text" name="username" placeholder="Username" required="required">
+                <input type="password" name="password" placeholder="Password" required="required">
+                <hr>
+                <input type="email" name="email" placeholder="Email" required="required">
+                <input type="text" name="ownerName" placeholder="Owner's Name" required="required">
+                <input type="text" name="petName" placeholder="Pet's Name" required="required">
+                <button>Register</button>
+            </form>
+        </div>
         <div class="userLog-links">
             <a href="/">Go back</a> ·
             <a href="/login">Login</a>
@@ -33,4 +36,4 @@
     </main>
 
 
-<%- include("../partials/footer") %>
+    <%- include("../partials/footer") %>
