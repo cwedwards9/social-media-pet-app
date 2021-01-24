@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Varela+Round&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
     <title>PetIt App</title>
@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-sm">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/pets">PetIt</a>
+        <a class="navbar-brand" href="/pets"><img src="/img/orange-logo-letters.png"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon">
             <i class="fas fa-bars"></i>
@@ -28,7 +28,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ms-auto">
-            <a class="nav-link active" aria-current="page" href="/pets/new"><i class="fas fa-pen"></i> New Pet</a>
+            <a class="nav-link active" aria-current="page" href="/pets/new"><i class="fas fa-pen"></i> Post</a>
             <% if (!currentUser) { %>
             <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
             <a class="nav-link" href="/register"><i class="fas fa-user-plus"></i> Sign Up</a>
