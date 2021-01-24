@@ -5,11 +5,11 @@ body {
 }
 
 .username {
-    color: #578a97;
+    color: #EB7821;
     text-decoration: none;
 }
 .username:hover {
-    color: #34555d;
+    color: #c5651b;
 }
 
 .postedBy {
@@ -23,32 +23,43 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 2rem;
-    background-color: #bfd6dd;
+    background-color: #FFFFFF;
 }
 nav a {
-    color: #34555d;
+    font-family: 'Varela Round', sans-serif;
+    color: #606060;
     margin-left: 1rem;
 }
 nav a:hover {
-    color: #487581;
+    color: #c5651b;
     opacity: 100%;
 }
 
+nav img {
+    width: 8rem;
+}
+
 .navbar-toggler-icon .fa-bars {
-    color: #34555d; 
+    color: #EB7821; 
     font-size: 1.75rem;
 }
 
 
 
 /* Register AND Login Page */
-#register form,
-#login form {
+#login img,
+#register img {
+    width: 25%;
+    margin: 0 auto;
+}
+
+div#register,
+div#login {
     display: flex;
     flex-direction: column;
     width: 35vw;
     margin: 3rem auto 0;
-    padding: 2.5rem 1.5rem;
+    padding: 2.5rem 1.5rem 1rem;
     background-color: white;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -56,13 +67,14 @@ nav a:hover {
 
 #register form h1,
 #login form h1 {
+    font-family: 'Varela Round', sans-serif;
     text-align: center;
     margin: 1rem 0;
 }
 
 #register form input,
 #login form input {
-    width: 90%;
+    width: 100%;
     height: 2rem;
     margin: 0 auto 0.75rem;
     padding-left: 0.75rem;
@@ -112,15 +124,15 @@ nav a:hover {
 }
 
 @media only screen and (max-width: 800px) {
-    #register form,
-    #login form { 
+    div#register,
+    div#login { 
         width: 60vw;
     }
 }
 
 @media only screen and (max-width: 475px) {
-    #register form,
-    #login form { 
+    div#register,
+    div#login { 
         width: 80vw;
     }
 }
@@ -131,12 +143,13 @@ nav a:hover {
 
 /* Pets Homepage (pets/index) */
 .pet-homepage h2 {
+    font-family: 'Varela Round', sans-serif;
     text-align: center;
     margin-top: 1.5rem;
 }
 
 .newPost {
-    margin: 0.75rem auto 3rem;
+    margin: 2rem auto 3rem;
     padding: 1rem;
     width: 45vw;
     border-radius: 5px;
@@ -244,7 +257,7 @@ nav a:hover {
     border: none;
     border-radius: 1.25rem;
     padding: 5px 5px;
-    background-color: #24b4e9;
+    background-color: #f0ad4e;
     color: white;
 }
 
@@ -423,10 +436,10 @@ nav a:hover {
 }
 
 .user-edit-btn {
-    border: 1px solid #34555d;
+    border: 1px solid #EB7821;
     border-radius: 1.25rem;
     padding: 5px 10px;
-    background-color: #34555d;
+    background-color: #EB7821;
     color: white;
     text-decoration: none;
 }
@@ -441,8 +454,9 @@ nav a:hover {
 }
 
 .users-posts h1 {
+    font-family: 'Varela Round', sans-serif;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -477,15 +491,11 @@ nav a:hover {
 
 
 /* User Edit Form */
-.user-edit-form {
-    margin-top: 1.5rem;
-}
-
 .user-edit-form form {
     display: flex;
     flex-direction: column;
     width: 50vw;
-    margin: 0 auto 1.5rem;
+    margin: 4rem auto 1.5rem;
     padding: 1.5rem;
     border-radius: 5px;
     background-color: white;
@@ -509,7 +519,7 @@ nav a:hover {
     border: none;
     border-radius: 1.25rem;
     padding: 5px 5px;
-    background-color: #24b4e9;
+    background-color: #f0ad4e;
     color: white;
 }
 
@@ -531,5 +541,55 @@ nav a:hover {
 
     .user-edit-form button {
         width: 25%;
+    }
+}
+
+
+
+
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-around;
+    height: 2.75rem;
+    width: 100%;
+    border-top: 1px solid lightgray;
+    margin-top: 5rem;
+}
+
+.footer-logo {
+    display: flex;
+}
+
+footer img {
+    padding-top: 0.5rem;
+    width: 2rem;
+}
+
+footer p {
+    padding: 1rem 0.5rem;
+    font-size: 0.75rem;
+    margin-bottom: 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 560px) {
+    footer {
+        flex-direction: column;
+        height: 6rem;
+        align-items: center;
+    }
+    footer p {
+        padding: 0.25rem;
+    }
+    footer img {
+        padding: 0;
+    }
+    .footer-logo {
+        align-items: center;
     }
 }
