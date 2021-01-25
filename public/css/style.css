@@ -94,18 +94,18 @@ div#login {
     border: none;
     border-radius: 1.25rem;
     padding: 5px 5px;
-    background-color:#bfd6dd;
+    background-color:#f0ad4e;
     color: black;
     outline: none;
     border: none;
     cursor: pointer;
     display: block;
     position: relative;
-    box-shadow: 0 4px #afc5cc;
+    box-shadow: 0 4px #eea034;
 }
 #register form button:hover,
 #login form button:hover {
-    box-shadow: 0 4px #afc5cc;
+    box-shadow: 0 4px #eea034;
     top: 1px;
 }
 
@@ -321,10 +321,10 @@ div#login {
 }
 
 #deleteModal form button {
-    border: 1px solid #34555d;
+    border: 1px solid #f0ad4e;
     border-radius: 1.25rem;
     padding: 5px 10px;
-    background-color: #34555d;
+    background-color: #f0ad4e;
     color: white;
 }
 
@@ -366,7 +366,7 @@ div#login {
     border: none;
     border-radius: 1.25rem;
     padding: 5px 10px;
-    background-color: #144c94;
+    background-color: #EB7821;
     color: white;
 }
 
@@ -465,7 +465,7 @@ div#login {
 }
 
 .users-posts div {
-    width: 60vw;
+    width: 55vw;
     margin: 0 auto 1.5rem;
     padding: 1.25rem;
     box-shadow: 0 19px 35px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.1);
@@ -477,7 +477,7 @@ div#login {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 700px) {
     .users-posts div {
         width: 85vw;
     }
