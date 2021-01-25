@@ -148,6 +148,10 @@ div#login {
     width: 5rem;
 }
 
+.pet-homepage h2 {
+    text-align: center;
+}
+
 .newPost {
     margin: 1rem auto 3rem;
     padding: 1rem;
