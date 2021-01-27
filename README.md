@@ -11,10 +11,7 @@ To view the PetIt site click [here](https://pet-it.herokuapp.com/pets)
 
 
 ## Description
-A social media for users to post pictures of their pets. All pets welcome!
-For the animal lovers in all of us. Share your pets with the world!     
-Users can sign up for an account and post pictures of their pets.       
-Users can view other user's posts and comment on the post.
+A social media for users to post pictures of their pets. All pets welcome! This app is for the animal lovers in all of us. Share your pets with the world!Sign up and post pictures of your pets. Take a look around and view other user's posts and make sure to give them a nice comment!
         
 ![PetIt Demo](/public/img/PetIt-demo.gif)
 
@@ -42,5 +39,5 @@ Feel free to submit pull requests
 
 
 ## License
-Copyright (c) 2021
+Copyright (c) 2021     
 Licensed Under the [MIT License](License)
